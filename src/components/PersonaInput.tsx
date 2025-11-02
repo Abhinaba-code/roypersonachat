@@ -27,32 +27,32 @@ const PersonaInput: React.FC<PersonaInputProps> = ({ onPersonaSet, isLoading }) 
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-full p-6 md:p-12 text-center bg-slate-800/50 rounded-2xl">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-teal-300 to-sky-400 text-transparent bg-clip-text">
+    <div className="flex flex-col items-center justify-center h-full p-6 md:p-12 text-center bg-white rounded-2xl">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800">
         Define Your AI's Persona
       </h2>
-      <p className="text-slate-400 mb-8 max-w-2xl">
+      <p className="text-slate-600 mb-8 max-w-2xl">
         Who do you want to talk to? Describe their personality, role, and background. The more detailed you are, the more convincing the conversation will be.
       </p>
 
-      <div className="w-full max-w-2xl p-1 bg-gradient-to-br from-teal-500 to-sky-600 rounded-lg shadow-lg">
+      <div className="w-full max-w-2xl">
         <textarea
           value={personaText}
           onChange={(e) => setPersonaText(e.target.value)}
           placeholder="e.g., You are a helpful assistant that speaks like Shakespeare..."
-          className="w-full h-40 p-4 bg-slate-900 border-none rounded-md text-slate-200 focus:ring-2 focus:ring-teal-400 focus:outline-none transition-shadow"
+          className="w-full h-40 p-4 bg-slate-100 border border-slate-200 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow"
           disabled={isLoading}
         />
       </div>
       
       <div className="mt-6 mb-6">
-        <h3 className="text-slate-400 text-sm mb-3">Or try a sample:</h3>
+        <h3 className="text-slate-500 text-sm mb-3">Or try a sample:</h3>
         <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
             {samplePersonas.map((sample, index) => (
                 <button 
                   key={index} 
                   onClick={() => handleSelectSample(sample)} 
-                  className="bg-slate-700/80 hover:bg-slate-700 text-xs text-teal-300 font-semibold py-1.5 px-3 rounded-full transition-all duration-200 transform hover:scale-105"
+                  className="bg-slate-200 hover:bg-slate-300 text-xs text-slate-700 font-semibold py-1.5 px-3 rounded-full transition-all duration-200"
                   aria-label={`Select sample persona ${index + 1}`}
                 >
                     {`Sample ${index + 1}`}
@@ -64,7 +64,7 @@ const PersonaInput: React.FC<PersonaInputProps> = ({ onPersonaSet, isLoading }) 
       <button
         onClick={handleStartChat}
         disabled={isLoading || !personaText.trim()}
-        className="px-8 py-3 bg-gradient-to-r from-teal-500 to-sky-600 text-white font-bold rounded-lg shadow-lg hover:from-teal-600 hover:to-sky-700 transition-all duration-300 transform hover:scale-105 disabled:from-slate-600 disabled:to-slate-700 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center w-64"
+        className="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 disabled:bg-slate-400 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center w-64"
       >
         {isLoading ? (
           <>

@@ -3,25 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #0f172a; /* slate-900 */
-}
-
-.animated-background {
-  background: linear-gradient(300deg, #0f172a, #1e293b, #334155);
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
-}
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background-color: #f1f5f9; /* slate-100 */
 }
 
 @keyframes fade-in-up {

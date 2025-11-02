@@ -19,7 +19,8 @@ const App: React.FC = () => {
     setError(null);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+      // Fix: Use process.env.API_KEY as per the coding guidelines.
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const newChatSession = ai.chats.create({
         model: 'gemini-2.5-flash',
         config: {
@@ -84,24 +85,24 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-900 text-slate-200 font-sans animated-background">
-      <header className="sticky top-0 z-10 bg-slate-900/60 backdrop-blur-md border-b border-slate-700/50 shadow-lg">
+    <div className="flex flex-col h-screen bg-slate-100 text-slate-800 font-sans">
+      <header className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-teal-300 to-sky-400 text-transparent bg-clip-text">
+          <h1 className="text-xl md:text-2xl font-bold text-slate-700">
             🤖 Roy Persona Chat
           </h1>
           <div className="flex items-center gap-4">
             {persona && (
                 <button
                     onClick={handleReset}
-                    className="bg-rose-500/80 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md"
+                    className="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-sm"
                 >
                     End Chat
                 </button>
             )}
             <button
               onClick={() => setIsAboutModalOpen(true)}
-              className="text-slate-400 hover:text-teal-300 transition-colors transform hover:scale-110"
+              className="text-slate-500 hover:text-blue-600 transition-colors transform hover:scale-110"
               aria-label="About this application"
             >
               <InfoIcon />
@@ -111,7 +112,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
-        <div className="w-full max-w-4xl h-full flex flex-col bg-slate-800/70 rounded-2xl shadow-2xl border border-slate-700/50">
+        <div className="w-full max-w-4xl h-full flex flex-col bg-white rounded-2xl shadow-lg border border-slate-200/80">
           {!persona ? (
             <PersonaInput onPersonaSet={handlePersonaSet} isLoading={isLoading} />
           ) : (
@@ -123,7 +124,7 @@ const App: React.FC = () => {
             />
           )}
           {error && (
-            <div className="p-4 bg-red-800/80 text-white text-center rounded-b-2xl border-t border-red-600">
+            <div className="p-4 bg-red-100 text-red-800 text-center rounded-b-2xl border-t border-red-200">
               <p><strong>Error:</strong> {error}</p>
             </div>
           )}

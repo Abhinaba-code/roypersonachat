@@ -14,10 +14,10 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   if (message.role === Role.MODEL && message.content === '') {
       return (
         <div className="flex items-end gap-3 justify-start animate-fade-in-up">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-sky-500 flex items-center justify-center shadow-lg">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center shadow-sm">
             <BotIcon />
           </div>
-          <div className="bg-slate-700 px-4 py-3 rounded-2xl rounded-bl-none max-w-xs md:max-w-md">
+          <div className="bg-slate-200 text-slate-900 px-4 py-3 rounded-2xl rounded-bl-none max-w-xs md:max-w-md">
             <Spinner />
           </div>
         </div>
@@ -27,21 +27,21 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   return (
     <div className={`flex items-end gap-3 animate-fade-in-up ${isUser ? 'justify-end' : 'justify-start'}`}>
       {!isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-sky-500 flex items-center justify-center shadow-lg">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center shadow-sm">
           <BotIcon />
         </div>
       )}
       <div
-        className={`px-4 py-3 rounded-2xl max-w-xs md:max-w-2xl break-words whitespace-pre-wrap shadow-md
+        className={`px-4 py-3 rounded-2xl max-w-xs md:max-w-2xl break-words whitespace-pre-wrap shadow-sm
           ${isUser 
-            ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-br-none' 
-            : 'bg-slate-700 text-slate-200 rounded-bl-none'}`
+            ? 'bg-blue-600 text-white rounded-br-none' 
+            : 'bg-slate-200 text-slate-900 rounded-bl-none'}`
         }
       >
         <p>{message.content}</p>
       </div>
       {isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center shadow-sm">
           <UserIcon />
         </div>
       )}
