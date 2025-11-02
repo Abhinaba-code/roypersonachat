@@ -1,0 +1,5 @@
+{
+  "name": "Roy Persona Chat",
+  "description": "An AI-powered chat application where you can define the persona of the chatbot. Engage in dynamic conversations with an AI tailored to the personality you create, from a witty pirate to a helpful librarian.",
+  "requestFramePermissions": []
+}
