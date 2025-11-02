@@ -17,16 +17,8 @@ const App: React.FC = () => {
   const handlePersonaSet = useCallback(async (newPersona: string) => {
     setIsLoading(true);
     setError(null);
-
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      setError('API Key is not configured. Please follow the setup instructions in the README file.');
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      const ai = new GoogleGenAI({ apiKey });
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
       const newChatSession = ai.chats.create({
         model: 'gemini-2.5-flash',
         config: {
